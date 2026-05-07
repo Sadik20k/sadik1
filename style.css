@@ -1,0 +1,1092 @@
+/* হেডারের স্টাইল */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* হেডারের উচ্চতা */
+  background: #1d5d64; /* ব্যাকগ্রাউন্ডের সাথে মিল রেখে */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-sizing: border-box;
+  z-index: 100; /* ঢেউয়ের ওপরে থাকার জন্য এটি জরুরি */
+  border-bottom: 2px solid #3f8188; /* হেডারের নিচে বর্ডার */
+}
+  /* লোগোর বেসিক স্টাইল (এটি ল্যাপটপ বা বড় স্ক্রিনের জন্য) */
+.logo {
+  font-size: 37px; /* ল্যাপটপে লোগো বড় দেখাবে */
+  font-weight: 800;
+  color: #e7e7e7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* লোগো যাতে হেডারের বাম দিকে সুন্দরভাবে থাকে */
+  display: flex;
+  align-items: center;
+}
+
+/* ল্যাপটপে হোভার করলে একটু ইফেক্ট হবে */
+.logo:hover {
+  color: #3f8188;
+  transform: scale(1.05);
+}
+
+/* মোবাইল স্ক্রিনের জন্য অ্যাডজাস্টমেন্ট (ফোন ভিউ) */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px; /* ফোনে লোগো ছোট হয়ে যাবে যাতে জায়গা কম নেয় */
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+}
+
+
+
+
+  /* naver section */
+
+
+  /* স্মুথ স্ক্রলিং ইফেক্ট - এটি ক্লিক করলে ধীরে ধীরে নিচে নিয়ে যাবে */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ন্যাভিগেশন মেনু স্টাইল */
+nav {
+  display: flex;
+  gap: 30px; /* আইটেমগুলোর মাঝখানে গ্যাপ */
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+  padding: 5px 0;
+}
+
+/* হোভার করলে নিচের লাইন এনিমেশন */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3f8188; /* আপনার দেওয়া কালার */
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #3f8188;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* গ্যালারি গ্রিড সেটআপ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ল্যাপটপে ৩টি বক্স */
+  gap: 25px; /* বক্সগুলোর মাঝের ফাঁকা জায়গা */
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* প্রতিটি বক্সের স্টাইল */
+.grid-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(63, 129, 136, 0.3); /* আপনার কালারের বর্ডার */
+  backdrop-filter: blur(5px);
+}
+
+.grid-item:hover {
+  transform: translateY(-10px); /* হোভার করলে একটু উপরে উঠবে */
+}
+
+/* মিডিয়া বক্স (ছবি/ভিডিও রাখার জায়গা) */
+.media-box {
+  width: 100%;
+  height: 250px; /* মিডিয়াম সাইজ */
+  overflow: hidden;
+  background: #000;
+}
+
+.media-box img, 
+.media-box video {
+  width: 100%;
+  height: 100%;
+  /* মুখ যাতে না কাটে সেজন্য নিচের ২ লাইন খুবই জরুরি */
+  object-fit: cover; 
+  object-position: center top; /* এটি ছবির উপরের অংশ বা মুখ ফোকাস রাখবে */
+}
+
+/* নিচের টেক্সট অংশ */
+.item-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.item-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #3f8188; /* আপনার দেওয়া কালার */
+}
+
+/* --- মোবাইল এবং ট্যাবলেটের জন্য রেসপনসিভ --- */
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* ট্যাবলেটে ২টা বক্স */
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr); /* ফোনে ১টা বক্স */
+  }
+  .media-box {
+    height: 200px; /* মোবাইলে বক্সের উচ্চতা একটু কমানো হয়েছে */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* বডি টেক্সট এরিয়া */
+.body-content-text {
+  display: block; /* নিশ্চিত করা যে এটি নিচে থাকবে */
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto; /* গ্রিড থেকে নিচে ৪০ পিক্সেল গ্যাপ */
+  text-align: left; /* বাম দিক থেকে শুরু */
+  color: #a2dfe0;
+  clear: both; /* ওপরের সব এলিমেন্ট থেকে নিজেকে মুক্ত করতে */
+  position: relative;
+  z-index: 5;
+}
+
+.body-content-text h2 {
+  font-size: 28px;
+  color: #020f1a; /* আপনার থিম কালার */
+  margin-bottom: 15px;
+}
+
+.body-content-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 800px; /* ল্যাপটপে যাতে পড়তে সুবিধা হয় */
+}
+
+/* মোবাইল রেসপনসিভ */
+@media (max-width: 768px) {
+  .body-content-text {
+    width: 95%;
+    margin-top: 25px;
+  }
+  .body-content-text h2 {
+    font-size: 22px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* About Section এর মেইন আইডি */
+#about-me-section {
+    width: 100%;
+    padding: 60px 0; /* ওপরে নিচে গ্যাপ */
+    background-color: transparent; /* আপনার ব্যাকগ্রাউন্ডের সাথে মিলে যাবে */
+    display: block;
+    clear: both;
+}
+
+/* কন্টেইনার যা লেখাকে মাঝামাঝি জায়গায় ধরে রাখবে */
+.about-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left; /* লেখা বাম দিক থেকে শুরু হবে */
+}
+
+/* টাইটেলের স্টাইল */
+.about-title {
+    font-size: 32px;
+    color: #020f1a; /* আপনার প্রোজেক্টের থিম কালার */
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* বর্ণনার স্টাইল */
+.about-content p {
+    font-size: 18px;
+    color: #a2dfe0; /* সাদা টেক্সট পড়ার সুবিধার জন্য */
+    line-height: 1.8; /* লাইনের মাঝে পর্যাপ্ত গ্যাপ */
+    margin-bottom: 20px;
+    max-width: 900px; /* ল্যাপটপে যাতে লাইন অনেক লম্বা না হয়ে যায় */
+    opacity: 0.9;
+}
+
+/* --- রেসপনসিভ (ফোনের জন্য) --- */
+@media (max-width: 768px) {
+    #about-me-section {
+        padding: 40px 0;
+    }
+    .about-container {
+        width: 95%;
+    }
+    .about-title {
+        font-size: 26px;
+    }
+    .about-content p {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* মেইন সেকশন কন্টেইনার */
+#about-section {
+    width: 95%; /* ফোনের জন্য একটু বেশি জায়গা রাখা হয়েছে */
+    max-width: 1100px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* কার্ড স্টাইল - সব স্ক্রিনে ফ্লেক্স (পাশাপাশি) থাকবে */
+.about-card {
+    display: flex;
+    flex-direction: row !important; /* এটি নিশ্চিত করবে ফোনেও পাশাপাশি থাকবে */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px; /* প্যাডিং কিছুটা কমানো হয়েছে ফোনের জন্য */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 15px; /* ছবি ও লেখার মাঝের গ্যাপ */
+}
+
+/* টেক্সট সেকশন */
+.card-text {
+    flex: 1.5; /* টেক্সট একটু বেশি জায়গা নিবে */
+    text-align: left;
+}
+
+.card-text h2 {
+    font-size: clamp(18px, 4vw, 32px); /* স্ক্রিন অনুযায়ী ফন্ট সাইজ ছোট-বড় হবে */
+    color: #062832;
+    margin-bottom: 10px;
+}
+
+.card-text h3 {
+    font-size: clamp(18px, 4vw, 32px); /* স্ক্রিন অনুযায়ী ফন্ট সাইজ ছোট-বড় হবে */
+    color: #062832;
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    color: #a2dfe0;
+    line-height: 1.5;
+    font-size: clamp(12px, 3vw, 16px); /* ছোট স্ক্রিনে লেখা ছোট হয়ে যাবে */
+    margin-bottom: 10px;
+}
+
+/* ইমেজ সেকশন */
+.card-image {
+    flex: 1; /* ছবি ১ ভাগ জায়গা নিবে */
+    display: flex;
+    justify-content: center;
+}
+
+.image-border {
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%; /* কন্টেইনারের পুরো জায়গা নিবে */
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    object-fit: cover;
+}
+
+/* টাইটেলের নিচের লাইন */
+.title-underline::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #3f8188;
+    margin-top: 5px;
+}
+
+/* দ্বিতীয় কার্ডের জন্য আলাদা সেটিংস (প্রয়োজন নেই কারণ রো ফিক্সড) */
+.secondary-card {
+    flex-direction: row !important;
+}
+
+/* ছোট স্ক্রিনের জন্য বাড়তি কিছু অ্যাডজাস্টমেন্ট (যাতে ভেঙে না যায়) */
+@media (max-width: 480px) {
+    .about-card {
+        padding: 10px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+    .image-border {
+        padding: 2px;
+    }
+}
+
+
+
+
+
+
+
+
+/* মেইন সেকশন */
+#bio-section {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    clear: both;
+}
+
+/* ট্রান্সপারেন্ট গ্লাস বক্স */
+.bio-box {
+    width: 90%;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.06); 
+    backdrop-filter: blur(15px); /* ঢেউ দেখার জন্য */
+    -webkit-backdrop-filter: blur(15px); /* Safari ব্রাউজারের জন্য */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* টাইটেল */
+.bio-title {
+    color: #062832;
+    font-size: clamp(20px, 4vw, 26px);
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(63, 129, 136, 0.3);
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+/* তথ্যের গ্রিড */
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ল্যাপটপে ২ কলাম */
+    gap: 20px 40px; /* কলামের মাঝে গ্যাপ একটু বাড়ানো হয়েছে */
+}
+
+/* প্রতিটি তথ্যের লাইন */
+.bio-item {
+    font-size: 16px;
+    color: #a2dfe0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 5px 0;
+}
+
+.bio-item strong {
+    color: #020f1a;
+    min-width: 120px; /* সুন্দর করে এলাইনমেন্ট রাখার জন্য */
+    font-weight: 600;
+}
+
+.bio-item span {
+    opacity: 0.9;
+}
+
+/* --- রেসপনসিভ (ট্যাবলেট ও ফোনের জন্য) --- */
+@media (max-width: 768px) {
+    .bio-grid {
+        grid-template-columns: 1fr; /* ফোনে ১ কলাম */
+        gap: 15px;
+    }
+    
+    .bio-box {
+        padding: 25px;
+        margin: 0 10px;
+    }
+
+    .bio-item strong {
+        min-width: 110px;
+        font-size: 14px;
+    }
+
+    .bio-item span {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* মেইন কন্টাক্ট সেকশন */
+#contact {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    clear: both;
+}
+
+/* ট্রান্সপারেন্ট মেইন বক্স */
+.contact-box {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.contact-title {
+    color: #0b080c;
+    font-size: 28px;
+    margin-bottom: 35px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* কন্টাক্ট আইটেম গ্রিড */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ল্যাপটপে ২ কলাম */
+    gap: 20px;
+}
+
+/* কন্টাক্ট কার্ড স্টাইল */
+.contact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none; /* লিঙ্ক কার্ডের জন্য */
+    transition: all 0.4s ease;
+}
+
+.contact-card:hover {
+    background: rgba(63, 129, 136, 0.15);
+    transform: translateY(-5px);
+    border-color: rgba(63, 129, 136, 0.4);
+}
+
+/* আইকন স্টাইল */
+.contact-icon {
+    font-size: 24px;
+    background: rgba(63, 129, 136, 0.2);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* টেক্সট স্টাইল */
+.contact-info {
+    text-align: left;
+}
+
+.contact-info strong {
+    display: block;
+    color: #020f1a;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.contact-info span {
+    color: #a2dfe0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* --- মোবাইল ভিউ --- */
+@media (max-width: 650px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* ফোনে ১ কলাম */
+    }
+    
+    .contact-box {
+        padding: 25px;
+    }
+
+    .contact-title {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* মেইন কন্টেইনারকে ফিক্স করা */
+#unique-text-area {
+  display: block !important;
+  clear: both !important;
+  width: 90% !important;
+  max-width: 1200px !important;
+  margin: 60px auto !important; /* গ্যালারি থেকে নিচে নামানোর জন্য */
+  text-align: left !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* h2 এর বদলে আমরা b ট্যাগকে টাইটেল বানিয়েছি */
+.custom-title {
+  display: block !important;
+  font-size: 36px !important;
+  color: #3f8188 !important; /* আপনার কালার */
+  margin-bottom: 15px !important;
+  font-family: sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+}
+
+/* বর্ণনার অংশ */
+.custom-description p {
+  display: block !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+  line-height: 1.8 !important;
+  margin: 0 0 10px 0 !important;
+  max-width: 100% !important;
+  text-align: left !important;
+}
+
+/* মোবাইল ভিউ ফিক্স */
+@media (max-width: 768px) {
+  #unique-text-area {
+    width: 95% !important;
+    margin-top: 30px !important;
+  }
+  .custom-title {
+    font-size: 26px !important;
+  }
+  .custom-description p {
+    font-size: 16px !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* Body content-er styling */
+.content-body {
+    margin-top: 80px;  /* Header-er height theke ektu beshi margin dite hobe */
+    padding: 20px;
+    background-color: #f4f4f4; /* Body-r alada background color */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+
+/* From Uiverse.io by marcelodolza */ 
+.button {
+  --primary: #ff5569;
+  --neutral-1: #f7f8f7;
+  --neutral-2: #e7e7e7;
+  --radius: 14px;
+
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border: none;
+  box-shadow: 0 0.5px 0.5px 1px rgba(255, 255, 255, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 5px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  padding: 20px;
+  height: 68px;
+  font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 600;
+}
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 3px -3px rgba(0, 0, 0, 0.04);
+}
+.button:active {
+  transform: scale(1);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 10px 3px -3px rgba(0, 0, 0, 0.2);
+}
+.button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 2.5px solid transparent;
+  background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.45))
+      border-box;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+.button:hover::after {
+  transform: scale(1.05, 1.1);
+  box-shadow: inset 0 -1px 3px 0 rgba(255, 255, 255, 1);
+}
+.button::before {
+  content: "";
+  inset: 7px 6px 6px 6px;
+  position: absolute;
+  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+  border-radius: 30px;
+  filter: blur(0.5px);
+  z-index: 2;
+}
+.state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon svg {
+  overflow: visible;
+}
+
+/* Outline */
+.outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  inset: -2px -3.5px;
+}
+.outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 60%,
+    white 80%,
+    transparent 100%
+  );
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.button:hover .outline {
+  opacity: 1;
+}
+.button:hover .outline::before {
+  animation-play-state: running;
+}
+
+/* Letters */
+.state p span {
+  display: block;
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s);
+}
+.button:hover p span {
+  opacity: 1;
+  animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
+}
+.button:focus p span {
+  opacity: 1;
+  animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
+}
+@keyframes wave {
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+    color: var(--primary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(5px) rotate(-90deg);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes disapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(5px) translateY(20px);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+}
+
+/* Plane */
+.state--default .icon svg {
+  animation: land 0.6s ease forwards;
+}
+.button:hover .state--default .icon {
+  transform: rotate(45deg) scale(1.25);
+}
+.button:focus .state--default svg {
+  animation: takeOff 0.8s linear forwards;
+}
+.button:focus .state--default .icon {
+  transform: rotate(0) scale(1.25);
+}
+@keyframes takeOff {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(70px) rotate(45deg) scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160px) rotate(45deg) scale(0);
+  }
+}
+@keyframes land {
+  0% {
+    transform: translateX(-60px) translateY(30px) rotate(-50deg) scale(2);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Contrail */
+.state--default .icon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  left: -5px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
+}
+.button:focus .state--default .icon:before {
+  animation: contrail 0.8s linear forwards;
+}
+@keyframes contrail {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  8% {
+    width: 15px;
+  }
+  60% {
+    opacity: 0.7;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    width: 160px;
+  }
+}
+
+/* States */
+.state {
+  padding-left: 29px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+}
+.state--default span:nth-child(4) {
+  margin-right: 5px;
+}
+.state--sent {
+  display: none;
+}
+.state--sent svg {
+  transform: scale(1.25);
+  margin-right: 8px;
+}
+.button:focus .state--default {
+  position: absolute;
+}
+.button:focus .state--sent {
+  display: flex;
+}
+.button:focus .state--sent span {
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.2s);
+}
+.button:focus .state--sent .icon svg {
+  opacity: 0;
+  animation: appear 1.2s ease forwards 0.8s;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(4) rotate(-40deg);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.6);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+
+   /* panir dheu */
+   /* পুরো স্ক্রিন জুড়ে ব্যাকগ্রাউন্ড */
+
+
+.e-card {
+  position: fixed;
+  top: 70px; /* আপনার হেডারের উচ্চতা অনুযায়ী এটি ঠিক করুন */
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background: #254d52; /* গভীর পানির বেস কালার */
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  /* বড় স্ক্রিনের জন্য সাইজ বাড়ানো হয়েছে যাতে গ্যাপ না থাকে */
+  width: 3000px; 
+  height: 3000px;
+  opacity: 0.5;
+  /* ঢেউটিকে মাঝখানে পজিশন করার জন্য */
+  left: 50%;
+  top: -2850px; /* এই মানটি ল্যাপটপ স্ক্রিনে ঢেউয়ের উচ্চতা নিয়ন্ত্রণ করবে */
+  margin-left: -1500px; /* উইডথ এর অর্ধেক যাতে ঠিক সেন্টারে থাকে */
+  background: #3f8188;
+  border-radius: 43%;
+  animation: wave 25s infinite linear;
+}
+
+/* ২য় এবং ৩য় ঢেউয়ের লেয়ার */
+.wave:nth-child(2) {
+  top: -2820px;
+  opacity: 0.3;
+  animation-duration: 20s;
+  background: #4ea2ab;
+  border-radius: 40%;
+}
+
+.wave:nth-child(3) {
+  top: -2800px;
+  opacity: 0.2;
+  animation-duration: 30s;
+  background: white;
+  border-radius: 45%;
+}
+
+/* মোবাইল স্ক্রিনের জন্য ছোট অ্যাডজাস্টমেন্ট */
+@media (max-width: 768px) {
+  .wave {
+    width: 1500px;
+    height: 1500px;
+    top: -1350px;
+    margin-left: -750px;
+  }
+  .wave:nth-child(2) { top: -1320px; }
+  .wave:nth-child(3) { top: -1300px; }
+}
+
+@keyframes wave {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* বডি কন্টেন্ট যাতে হেডারের নিচে না ঢোকে */
+.content {
+  margin-top: 100px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* কন্টেন্ট যাতে ওপরে থাকে */
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
+footer {
+    position: relative !important;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #479b9d;
+    color: #479b9d;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 10;
+}
